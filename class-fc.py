@@ -183,6 +183,7 @@ def run(prompt_user):
 
 run("都有哪些套餐？")
 
+# 交互式输入
 prompt = input("请输入您的套餐需求(退出请输入：exit)：")
 while prompt != "exit":
     run(prompt)
