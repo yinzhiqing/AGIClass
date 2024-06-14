@@ -12,7 +12,6 @@ _ = load_dotenv(find_dotenv())
 client = OpenAI()
 
 
-
 def print_json(data):
     """
     打印参数。如果参数是有结构的（如字典或列表），则以格式化的 JSON 形式打印；
