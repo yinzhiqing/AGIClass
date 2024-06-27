@@ -32,6 +32,24 @@ def print_json(data):
     else:
         print(data)
 
+# 获取模型列表
+def get_chat_completion(prompt, model="gpt-3.5-turbo"):
+    """
+    获取聊天结果
+    """
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{
+            "role": "system",
+            "content": "你是一个手机流量套餐的客服代码，你叫小清，基于数据库的数据帮助客户选择最合适的流量套餐产品。介绍套餐时候依照下面的格式：如果有合适套餐: 用户说：300太贵了，200元以内有吗? 回答： 经济套餐，月费50元，流量10GB，无要求 如果没有合适套餐: 用户说：300太贵了，200元以内有吗? 回答：抱歉，没有合适的套餐"
+        }, {
+            "role": "user",
+            "content": prompt
+        }],
+        temperature=0
+    )
+    return response 
+
 
 def get_sql_completion(msg, model="gpt-3.5-turbo"):
     """
